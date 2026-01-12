@@ -1,7 +1,11 @@
 ---
-title: "Welcome"
+title: "How to handle LLMs in your research"
 ---
 
-# Hello!
+# Materials
 
-This is my Quarto website.
+This page contains the course materials and information for *How to handle LLMs in your research*.
+
+- [Lecture slides](slides/slides.pdf)
+
+- [Tutorial](documents/tutorial.html)
