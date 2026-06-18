@@ -2208,7 +2208,7 @@ margin-top: 0;
 </style>
 <section id="tutorial-how-to-handle-llms-in-your-research" class="level1">
 <h1>Tutorial: <em>How to handle LLMs in your research</em></h1>
-<p><em>For Clinical Child &amp; Family Studies</em></p>
+<p><em>For Interdisciplinary Social Science</em></p>
 <p><strong>Course coordinators:</strong> Ayoub Bagheri, Pablo Mosteiro (Department of Methodology and Statistics)</p>
 <p><strong>Duration:</strong> 1 hour</p>
 <p><em>Parts of this tutorial were drafted with assistance from Qwen/Qwen2.5-7B-Instruct and moonshotai/Kimi-K2-Instruct-0905 via HuggingChat, using Together and Groq as providers. The examples are fictional and were generated with GPT-5.5.</em></p>
@@ -2244,72 +2244,126 @@ margin-top: 0;
 <h2 class="anchored" data-anchor-id="part-2-example-applications-in-research">Part 2: Example applications in research</h2>
 <section id="example-1-extract-information-from-text" class="level3">
 <h3 class="anchored" data-anchor-id="example-1-extract-information-from-text">Example 1: Extract information from text</h3>
-<p><strong>Scenario:</strong> You have a short case description and want to extract information relevant to your research.</p>
+<p><strong>Scenario:</strong> You want to extract relevant information from interviews.</p>
 <p>Copy this prompt to HuggingChat:</p>
-<pre class="text"><code>Extract the key information from the case below.
+<pre class="text"><code>You are assisting with qualitative analysis of interview excerpts.
 
-Case:
-A 12-year-old child has recently become more withdrawn at school. A teacher reports that the child avoids group activities and has had several conflicts with classmates. The parent says that the child has been sleeping poorly since the parents separated six months ago. The child says, &quot;I do not want to pick sides, but everyone keeps asking me what I want.&quot; The school is considering whether extra support is needed, but no formal assessment has been conducted.
+Analysis instructions:
+The interview study concerns researchers&#39; understandings and experiences of interdisciplinary work. Extract information that is relevant to:
+- definitions of interdisciplinarity,
+- examples of interdisciplinary work,
+- benefits of interdisciplinary work,
+- challenges of interdisciplinary work,
+- dilemmas or contradictions in how participants discuss interdisciplinary work.
+
+Interview excerpts:
+
+Excerpt 1:
+&quot;Well, I&#39;ll start by saying that I do have some experience of doing research with people from other disciplines, but never in my life have I used all these terms so often. Uh, as I do here because, um, also kind of a disclaimer, uh, I, I feel like this is a very European thing. The interdisciplinarity, like this obsession with, like, crossing boundaries. Um, in my experience. So I did, uh, my graduate studies in the US, and it was a very disciplinary kind of, uh, siloed, even, uh, system because you were educated in your discipline. You probably also did most of your research with people from your discipline. And it was kind of, uh, an exception if you did cross the boundaries. But here everyone is doing it so seamlessly, I feel like, and it&#39;s just a requirement. And people do think about it a lot, what it means. So I also started thinking about it, and then I realized that I actually do have the experience, which maybe I could reflect on better if I knew about all these, you know, discussions around interdisciplinarity, multi disciplinary, disciplinary or what have you. So. Now I know that. Interdisciplinarity. Mostly people use it to refer to research within academia. But like crossing disciplinary boundaries. But transdisciplinary means something else that you work with partners outside of academia, I guess, which is also new to me.&quot;
+
+Excerpt 2:
+&quot;And this is what is new to me. So I try to be careful when I when I say it, but also it comes from my experience of being trained in a particular tradition. You know, like a discipline has a method. A discipline has like its lingo. Yeah. So when you just change all that for interdisciplinary social science as a discipline, then it also kind of has its own core. It has its own lingo. But is it then a discipline that&#39;s called interdisciplinary social science or is it interdisciplinary social science?&quot;
+
+Excerpt 3:
+&quot;Well, I actually I think interdisciplinary or transdisciplinary research, I think it&#39;s the only way forward. If you talk about really big societal problems because, these issues like climate change or inequality. These have so many aspects and underlying causes. And so I think to really understand then what&#39;s going on and to do something about it, you really need each other because you cannot solve these big problems just with one discipline. It&#39;s just impossible, I think. I do think it&#39;s still valuable also to do disciplinary research, to focus on a certain aspect of that bigger problem and really try to understand the nitty gritty things going on there. But for finding solutions to big problems, I think you then still again need to combine all these perspectives or insights to find the solutions that have the potential to work. And I think also to then, later, implement solutions, you also need to have had all these actors already at the table from the start, because then people feel like they had a say, and they also feel kind of involved... I think they are more inclined to also then act. Instead of that, you would just come up to them at some point and say, hey, we have figured it out, you need to do this. Then people are like, oh, who are you then? Compared to when they would have been involved from the start. And for me personally, I just also really like to hear how other people think, because I&#39;m so aware that my perspective or my opinion is just one of the many perspectives. And I always find it inspiring to hear like: right, you can also approach it that way and see it that way. And so yeah, for me, it&#39;s just a really nice way of working and doing research.&quot;
 
 Provide:
-1. The main issue in one sentence.
-2. The child-level, family-level, school-level, and peer-level factors mentioned in the text.
-3. Exact words or phrases from the case that support each point.
-4. Any uncertainty, ambiguity, or missing context.
-5. What would need manual verification before this could be used in research, assessment, or policy advice.
+1. Definitions or understandings of interdisciplinarity mentioned by the participant.
+2. Examples of interdisciplinary or transdisciplinary work.
+3. Benefits of interdisciplinary work.
+4. Challenges, tensions, or dilemmas.
+5. Contradictions or ambivalences in how the participant talks about interdisciplinarity.
+6. Exact quotes that support each point.
+7. Any uncertainty, ambiguity, or missing context.
 
-Stay close to the text. Do not diagnose the child. Do not infer abuse, disorder, trauma, or risk level unless the text explicitly supports it. Use cautious language.</code></pre>
+Stay close to the excerpts. Do not impose a theory of interdisciplinarity that is not present in the text. Mark uncertain interpretations clearly.</code></pre>
 <p><strong>Task:</strong> Use the BRAVE(R) framework to analyze the prompt, then use the FACTS framework to analyze the response. Discuss your evaluation with a classmate.</p>
 <p><em>Note: LLMs can also help building and improving prompts.</em></p>
 <section id="reflection" class="level4">
 <h4 class="anchored" data-anchor-id="reflection">Reflection</h4>
 <ol type="1">
-<li>Did the model separate child, family, school, and peer factors clearly?</li>
-<li>Did it quote evidence from the case?</li>
-<li>Did it avoid diagnosis or unsupported risk claims?</li>
-<li>What information would a researcher or practitioner still need to check manually?</li>
+<li>Did the model distinguish definitions, examples, benefits, challenges, and dilemmas?</li>
+<li>Did it use exact quotes from the interview excerpts?</li>
+<li>Did it identify ambiguity or ambivalence without over-interpreting?</li>
+<li>Did it add claims about interdisciplinarity that were not in the excerpts?</li>
 </ol>
 <hr>
 </section>
 </section>
 <section id="example-2-code-annotate-or-classify-text" class="level3">
 <h3 class="anchored" data-anchor-id="example-2-code-annotate-or-classify-text">Example 2: Code, annotate or classify text</h3>
-<p><strong>Scenario:</strong> You need to code an interview response using a codebook.</p>
+<p><strong>Scenario:</strong> You need to code qualitative interview excerpts using a predefined codebook, while still allowing room for inductive themes.</p>
 <p>Copy this prompt to HuggingChat:</p>
-<pre class="text"><code>Code the following interview excerpt using the codebook below.
+<pre class="text"><code>You are assisting with qualitative coding of interview excerpts.
 
-Interview question:
-&quot;What has changed for the child or family in the past few months?&quot;
+Coding instructions:
+Code the excerpts using the codebook below. The analysis focuses on how researchers understand and experience interdisciplinary work.
 
-Response:
-&quot;Since the move, he gets angry much faster. At school they say he interrupts other children and walks out when things get too much. At home he wants to stay close to me all the time. I try to keep routines stable, but I am also stressed and sometimes I just give in because I do not want another argument.&quot;
+Use the predefined codes where possible. If an important theme is clearly present but does not fit the codebook, suggest an inductive theme.
 
 Codebook:
-- Child emotional or behavioural difficulties: signs of distress, anger, withdrawal, anxiety, impulsivity, or problems with regulation.
-- Parenting stress or coping: parent reports of stress, exhaustion, uncertainty, inconsistent responses, or attempts to manage the situation.
-- School or peer functioning: references to classroom behaviour, peer relationships, teacher concerns, or school participation.
-- Family transition or environmental stressor: references to divorce, bereavement, illness, moving, poverty, migration, family conflict, or other contextual stressors.
-- Protective factor or support: references to routines, supportive relationships, help-seeking, services, or strategies that may support the child or family.
-- Ambiguous or insufficient evidence: use this when the excerpt does not clearly support a code.
+
+Definitions and understandings of interdisciplinarity:
+- DEF_BOUNDARY_CROSSING: Interdisciplinarity is described as crossing boundaries between academic disciplines.
+- DEF_TRANSDISCIPLINARY_EXTERNAL_ACTORS: Transdisciplinarity is described as involving partners or actors outside academia.
+- DEF_DISCIPLINE_WITH_METHOD_LINGO: A discipline is described as having its own methods, language, traditions, or training.
+- DEF_ISW_AS_DISCIPLINE_OR_NOT: The participant questions whether interdisciplinary social science is itself a discipline.
+
+Benefits of interdisciplinary work:
+- BEN_COMPLEX_PROBLEMS: Interdisciplinary work is presented as necessary for understanding complex societal problems.
+- BEN_BETTER_SOLUTIONS: Combining perspectives is presented as useful for developing solutions.
+- BEN_IMPLEMENTATION_AND_BUY_IN: Involving actors early is presented as helpful for later implementation or acceptance.
+- BEN_LEARNING_FROM_PERSPECTIVES: The participant values hearing or learning from other perspectives.
+
+Challenges of interdisciplinary work:
+- CHA_TERMINOLOGY_CONFUSION: The participant expresses uncertainty about terms such as interdisciplinary, multidisciplinary, or transdisciplinary.
+- CHA_DISCIPLINARY_SILOS: The participant describes disciplinary training or research environments as siloed.
+- CHA_INSTITUTIONAL_PRESSURE: Interdisciplinarity is described as an expectation, requirement, or institutional norm.
+- CHA_COORDINATION_OR_ACTOR_INVOLVEMENT: The participant implies that collaboration requires coordination across people, disciplines, or actors.
+
+Dilemmas and contradictions:
+- DIL_DISCIPLINARY_DEPTH_VS_INTEGRATION: The participant values disciplinary depth while also arguing that broader problems require combining perspectives.
+- DIL_INTERDISCIPLINARITY_AS_CHOICE_VS_REQUIREMENT: Interdisciplinary work is presented both as valuable and as something expected or required.
+- DIL_INTERDISCIPLINARITY_AS_ANTI_DISCIPLINE_VS_OWN_DISCIPLINE: Interdisciplinary social science is discussed as both crossing disciplines and possibly becoming a discipline with its own core.
+- DIL_CONCEPTUAL_BLURRING: The participant uses or discusses related terms in a way that shows uncertainty, overlap, or ambiguity.
+
+Other:
+- IND_OTHER: Use this only when an important theme is clearly present but does not fit the codebook. Name the suggested inductive theme.
+- UNCLEAR: Use this when the excerpt does not clearly support another code.
+
+Interview excerpts:
+
+Excerpt 1:
+&quot;Well, I&#39;ll start by saying that I do have some experience of doing research with people from other disciplines, but never in my life have I used all these terms so often. Uh, as I do here because, um, also kind of a disclaimer, uh, I, I feel like this is a very European thing. The interdisciplinarity, like this obsession with, like, crossing boundaries. Um, in my experience. So I did, uh, my graduate studies in the US, and it was a very disciplinary kind of, uh, siloed, even, uh, system because you were educated in your discipline. You probably also did most of your research with people from your discipline. And it was kind of, uh, an exception if you did cross the boundaries. But here everyone is doing it so seamlessly, I feel like, and it&#39;s just a requirement. And people do think about it a lot, what it means. So I also started thinking about it, and then I realized that I actually do have the experience, which maybe I could reflect on better if I knew about all these, you know, discussions around interdisciplinarity, multi disciplinary, disciplinary or what have you. So. Now I know that. Interdisciplinarity. Mostly people use it to refer to research within academia. But like crossing disciplinary boundaries. But transdisciplinary means something else that you work with partners outside of academia, I guess, which is also new to me.&quot;
+
+Excerpt 2:
+&quot;And this is what is new to me. So I try to be careful when I when I say it, but also it comes from my experience of being trained in a particular tradition. You know, like a discipline has a method. A discipline has like its lingo. Yeah. So when you just change all that for interdisciplinary social science as a discipline, then it also kind of has its own core. It has its own lingo. But is it then a discipline that&#39;s called interdisciplinary social science or is it interdisciplinary social science?&quot;
+
+Excerpt 3:
+&quot;Well, I actually I think interdisciplinary or transdisciplinary research, I think it&#39;s the only way forward. If you talk about really big societal problems because, these issues like climate change or inequality. These have so many aspects and underlying causes. And so I think to really understand then what&#39;s going on and to do something about it, you really need each other because you cannot solve these big problems just with one discipline. It&#39;s just impossible, I think. I do think it&#39;s still valuable also to do disciplinary research, to focus on a certain aspect of that bigger problem and really try to understand the nitty gritty things going on there. But for finding solutions to big problems, I think you then still again need to combine all these perspectives or insights to find the solutions that have the potential to work. And I think also to then, later, implement solutions, you also need to have had all these actors already at the table from the start, because then people feel like they had a say, and they also feel kind of involved... I think they are more inclined to also then act. Instead of that, you would just come up to them at some point and say, hey, we have figured it out, you need to do this. Then people are like, oh, who are you then? Compared to when they would have been involved from the start. And for me personally, I just also really like to hear how other people think, because I&#39;m so aware that my perspective or my opinion is just one of the many perspectives. And I always find it inspiring to hear like: right, you can also approach it that way and see it that way. And so yeah, for me, it&#39;s just a really nice way of working and doing research.&quot;
 
 Provide a table with:
-1. Text segment.
-2. Assigned code or codes.
-3. Exact supporting words.
-4. Confidence: high, medium, or low.
-5. Alternative possible code.
-6. Brief justification.
+1. Excerpt number.
+2. Text segment.
+3. Assigned code or codes.
+4. Exact supporting words.
+5. Confidence: high, medium, or low.
+6. Alternative possible code.
+7. Brief justification.
+8. Suggested inductive theme, if relevant.
 
-Do not force a code when the evidence is weak. Do not diagnose. Mark ambiguity explicitly.</code></pre>
+Do not force a code when the evidence is weak. Mark ambiguity explicitly. Keep interpretations grounded in the excerpts.</code></pre>
 <p><strong>Task:</strong> Use the FACTS framework to analyze the response. Discuss your evaluation with a classmate.</p>
 <p><em>Note: You can include a codebook in the prompt. Clearer definitions lead to more consistent outputs, and current LLMs can follow detailed instructions and output schemas.</em></p>
 <section id="reflection-1" class="level4">
 <h4 class="anchored" data-anchor-id="reflection-1">Reflection</h4>
 <ol type="1">
-<li>Did the model apply the codebook consistently?</li>
-<li>Did it separate child behaviour, parenting stress, school functioning, and contextual stressors?</li>
-<li>Did it over-interpret the excerpt or imply diagnosis?</li>
-<li>Would the coding be reproducible if another researcher used the same prompt?</li>
+<li>Did the model apply the predefined codes consistently?</li>
+<li>Did the model distinguish definitions, benefits, challenges, and dilemmas?</li>
+<li>Did it identify dilemmas or contradictions rather than only listing positive and negative points?</li>
+<li>Were any inductive themes genuinely grounded in the excerpts?</li>
+<li>Did it preserve ambiguity where the excerpt was unclear?</li>
+<li>Would another researcher be able to reproduce this coding from the same codebook?</li>
 </ol>
 <hr>
 </section>
@@ -2318,22 +2372,22 @@ Do not force a code when the evidence is weak. Do not diagnose. Mark ambiguity e
 <h3 class="anchored" data-anchor-id="example-3-summarize-or-compare-research">Example 3: Summarize or compare research</h3>
 <p><strong>Scenario:</strong> You need to quickly understand whether an article is relevant to your research.</p>
 <p>Copy this prompt to HuggingChat:</p>
-<pre class="text"><code>Summarize the research abstract below for a Clinical Child &amp; Family Studies researcher deciding whether the article is relevant to their research.
+<pre class="text"><code>Summarize the research abstract below for an Interdisciplinary Social Science researcher deciding whether the article is relevant.
 
 Abstract:
 [INSERT ABSTRACT TEXT HERE]
 
 Provide:
 1. The main research question.
-2. The target group or population studied.
+2. The social problem, population, or setting studied.
 3. The study design and method.
 4. The main findings.
-5. Any findings relevant to child development, parenting, family context, school or peer environment, assessment, prevention, or intervention.
+5. Any findings relevant to youth, migration and cultural diversity, social policy, public health, inequality, discrimination, participation, or interdisciplinary research.
 6. Limitations explicitly mentioned in the abstract.
 7. Claims that require reading the full paper before trusting.
 8. Three search terms for finding related work.
 
-Use only information from the abstract. Do not invent sample details, measures, effect sizes, mechanisms, clinical implications, or policy implications. Mark uncertain points clearly.</code></pre>
+Use only information from the abstract. Do not invent sample details, measures, effect sizes, mechanisms, policy implications, or practical recommendations. Mark uncertain points clearly.</code></pre>
 <p><strong>Task:</strong> Use the FACTS framework to analyze the response. Discuss your evaluation with a classmate.</p>
 <section id="reflection-2" class="level4">
 <h4 class="anchored" data-anchor-id="reflection-2">Reflection</h4>
@@ -2351,16 +2405,16 @@ Use only information from the abstract. Do not invent sample details, measures, 
 <h2 class="anchored" data-anchor-id="part-3-understanding-model-limitations">Part 3: Understanding model limitations</h2>
 <section id="exercise-1-identifying-hallucinations" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1-identifying-hallucinations">Exercise 1: Identifying hallucinations</h3>
-<p><strong>Task:</strong> Ask the model to review recent literature in a specific field. For example:</p>
-<p>What are the latest validated AI-based screening tools for detecting psychosocial problems in children and families, published in 2026?</p>
-<p>Then check the answer against reliable external sources such as Google Scholar, PubMed, Web of Science, Scopus, or official project pages.</p>
+<p><strong>Task:</strong> Ask the model to provide an overview of recent literature in a specific field. For example:</p>
+<p>What are the latest studies on interdisciplinary or transdisciplinary research for addressing institutional inequality, published in 2026?</p>
+<p>Then check the answer against reliable external sources such as Google Scholar, Web of Science, Scopus, PubMed, or official project pages.</p>
 <section id="reflection-3" class="level4">
 <h4 class="anchored" data-anchor-id="reflection-3">Reflection</h4>
 <ol type="1">
-<li>Do the named studies, tools, or interventions actually exist?</li>
-<li>Are the authors, publication years, journals, and institutions correct?</li>
-<li>Does the model confuse proposed tools with validated instruments?</li>
-<li>Does it imply clinical usefulness or diagnostic validity without evidence?</li>
+<li>Do the named studies, authors, journals, or projects actually exist?</li>
+<li>Are the publication years and article titles correct?</li>
+<li>Does the model confuse conceptual papers, empirical studies, reports, and opinion pieces?</li>
+<li>Does it overstate what recent literature has established?</li>
 <li>What wording would make the prompt safer and more precise?</li>
 </ol>
 <p>Document any fabricated, unverifiable, or overstated claims.</p>
@@ -2370,17 +2424,17 @@ Use only information from the abstract. Do not invent sample details, measures, 
 <section id="exercise-2-bias-detection" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2-bias-detection">Exercise 2: Bias detection</h3>
 <p><strong>Task:</strong> Compare responses to these two prompts:</p>
-<p>Prompt A: Describe the typical profile of a high-risk family.</p>
-<p>Prompt B: Describe how risks and protective factors in child development can vary across family structures, socioeconomic contexts, cultures, schools, peer groups, and service systems.</p>
-<p>Pay attention to what the model treats as normal, risky, problematic, or protective.</p>
+<p>Prompt A: Describe the typical problems of interdisciplinary research.</p>
+<p>Prompt B: Describe the possible benefits, challenges, dilemmas, and institutional conditions of interdisciplinary research, while distinguishing disciplinary, interdisciplinary, multidisciplinary, and transdisciplinary work.</p>
+<p>Pay attention to what the model treats as obvious, desirable, difficult, or problematic.</p>
 <section id="reflection-4" class="level4">
 <h4 class="anchored" data-anchor-id="reflection-4">Reflection</h4>
 <ol type="1">
-<li>What assumptions does the model make about families, parents, children, or social background?</li>
-<li>Does it stereotype particular family structures, cultures, or socioeconomic groups?</li>
-<li>Does it balance risk factors with protective factors?</li>
-<li>Does it distinguish individual, family, school, peer, and policy-level factors?</li>
-<li>How could the prompt be revised to reduce stigmatizing or overgeneralized output?</li>
+<li>What assumptions does the model make about disciplines and interdisciplinary work?</li>
+<li>Does it treat interdisciplinarity as automatically better than disciplinary research?</li>
+<li>Does it distinguish benefits, challenges, and dilemmas?</li>
+<li>Does it define key terms carefully, or does it blur them together?</li>
+<li>How could the prompt be revised to produce a more balanced and analytically useful response?</li>
 </ol>
 <hr>
 </section>
