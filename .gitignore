@@ -4,3 +4,5 @@
 .Ruserdata
 
 **/*.quarto_ipynb
+.quarto
+_site
